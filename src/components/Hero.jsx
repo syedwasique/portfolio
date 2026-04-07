@@ -50,7 +50,8 @@ const Hero = () => {
                   <span
                     key={`${line}-${charIndex}`}
                     className={styles.nameSpace}
-                  />
+                    aria-hidden="true"
+                  >&nbsp;</span>
                 ) : (
                   <span
                     key={`${line}-${charIndex}`}
