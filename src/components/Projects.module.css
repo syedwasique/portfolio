@@ -1,0 +1,125 @@
+.projectsSection {
+  padding: 6rem 2rem;
+  background-color: var(--bg-secondary);
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionHeading {
+  text-align: left;
+  margin-bottom: 4rem;
+  color: var(--text-muted);
+  font-size: 2rem;
+  opacity: 0.8;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background-color: var(--bg-card);
+  border-radius: 8px;
+  padding: 2rem;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+}
+
+.card.cyan::before {
+  background: var(--accent-cyan);
+  box-shadow: 0 0 10px var(--accent-cyan);
+}
+
+.card.violet::before {
+  background: var(--accent-violet);
+  box-shadow: 0 0 10px var(--accent-violet);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card.cyan:hover {
+  box-shadow: 0 10px 30px rgba(0, 245, 255, 0.15), 0 0 0 1px rgba(0, 245, 255, 0.3);
+}
+
+.card.violet:hover {
+  box-shadow: 0 10px 30px rgba(123, 47, 255, 0.15), 0 0 0 1px rgba(123, 47, 255, 0.3);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.cardLinks {
+  display: flex;
+  gap: 1rem;
+}
+
+.iconBtn {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.iconBtn:hover {
+  color: var(--text-primary);
+  filter: drop-shadow(0 0 5px rgba(255,255,255,0.5));
+}
+
+.cardDescription {
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.techPill {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.8rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-primary);
+  opacity: 0.8;
+}

@@ -1,0 +1,107 @@
+.educationSection {
+  padding: 6rem 2rem;
+  background-color: var(--bg-secondary);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionHeading {
+  text-align: left;
+  margin-bottom: 4rem;
+  color: var(--text-muted);
+  font-size: 2rem;
+  opacity: 0.8;
+}
+
+.cardsRow {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.eduCard {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2.5rem 2rem;
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.eduCard::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0, 245, 255, 0.1) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.eduCard:hover {
+  transform: translateY(-10px);
+  border-color: rgba(0, 245, 255, 0.3);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.eduCard:hover::after {
+  opacity: 1;
+}
+
+.iconWrapper {
+  width: 60px;
+  height: 60px;
+  background: var(--bg-primary);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 1.5rem auto;
+  border: 1px solid var(--border);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.eduCard:hover .iconWrapper {
+  transform: scale(1.1);
+  box-shadow: var(--glow-cyan);
+  border-color: var(--accent-cyan);
+}
+
+.icon {
+  font-size: 1.8rem;
+  color: var(--text-primary);
+}
+
+.eduCard:hover .icon {
+  color: var(--accent-cyan);
+}
+
+.institution {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.degree {
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.years {
+  font-size: 0.85rem;
+  color: var(--accent-cyan);
+  padding: 0.3rem 0.8rem;
+  background: rgba(0, 245, 255, 0.05);
+  border-radius: 4px;
+}

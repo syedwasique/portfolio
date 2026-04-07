@@ -1,0 +1,133 @@
+.experienceSection {
+  padding: 6rem 2rem;
+  background-color: var(--bg-primary);
+  position: relative;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.sectionHeading {
+  text-align: left;
+  margin-bottom: 4rem;
+  color: var(--text-muted);
+  font-size: 2rem;
+  opacity: 0.8;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 2px;
+  background: var(--border);
+}
+
+.timelineItem {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.timelineItem:last-child {
+  margin-bottom: 0;
+}
+
+.timelineDot {
+  position: absolute;
+  left: -2rem;
+  top: 0.2rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  background-color: var(--bg-card);
+  border: 3px solid;
+  z-index: 2;
+}
+
+.timelineDot.cyan {
+  border-color: var(--accent-cyan);
+  box-shadow: var(--glow-cyan);
+}
+
+.timelineDot.violet {
+  border-color: var(--accent-violet);
+  box-shadow: var(--glow-violet);
+}
+
+.timelineContent {
+  background-color: var(--bg-card);
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  border-left: 4px solid;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.timelineContent.cyan {
+  border-left-color: var(--accent-cyan);
+}
+
+.timelineContent.violet {
+  border-left-color: var(--accent-violet);
+}
+
+.timelineContent:hover {
+  transform: translateX(10px);
+}
+
+.timelineContent.cyan:hover {
+  box-shadow: -5px 0 20px rgba(0, 245, 255, 0.1);
+}
+
+.timelineContent.violet:hover {
+  box-shadow: -5px 0 20px rgba(123, 47, 255, 0.1);
+}
+
+.timelineHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.title {
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.company {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.date {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.description {
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .timelineHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,86 @@
+.skillsSection {
+  padding: 6rem 2rem;
+  background-color: var(--bg-primary);
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionHeading {
+  text-align: left;
+  margin-bottom: 3rem;
+  color: var(--text-muted);
+  font-size: 2rem;
+  opacity: 0.8;
+}
+
+.skillsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.skillGroup {
+  animation: fadeIn 0.5s ease-in;
+}
+
+.groupTitle {
+  font-size: 1.2rem;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.groupTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 50%;
+  height: 2px;
+  background: var(--accent-gradient);
+}
+
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.tagPill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.tagPill:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-cyan);
+  box-shadow: var(--glow-cyan);
+  background: rgba(0, 245, 255, 0.05);
+}
+
+.tagPill:hover .icon {
+  transform: scale(1.1);
+  transition: transform 0.2s;
+}
