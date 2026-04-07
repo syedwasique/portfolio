@@ -8,7 +8,7 @@ const TITLES = [
   "Problem Solver"
 ];
 
-const HERO_NAME = ["WASIQUE", "RIZVI"];
+const HERO_NAME = ["WASIQUE RIZVI"];
 
 const Hero = () => {
   const [titleIndex, setTitleIndex] = useState(0);
@@ -46,13 +46,21 @@ const Hero = () => {
           {HERO_NAME.map((line, lineIndex) => (
             <span key={line} className={styles.nameLine}>
               {line.split('').map((char, charIndex) => (
-                <span
-                  key={`${line}-${charIndex}`}
-                  className={styles.animatedLetter}
-                  style={{ animationDelay: `${lineIndex * 0.45 + charIndex * 0.08}s` }}
-                >
-                  {char}
-                </span>
+                char === ' ' ? (
+                  <span
+                    key={`${line}-${charIndex}`}
+                    className={styles.nameSpace}
+                    aria-hidden="true"
+                  >&nbsp;</span>
+                ) : (
+                  <span
+                    key={`${line}-${charIndex}`}
+                    className={styles.animatedLetter}
+                    style={{ animationDelay: `${lineIndex * 0.45 + charIndex * 0.08}s` }}
+                  >
+                    {char}
+                  </span>
+                )
               ))}
             </span>
           ))}

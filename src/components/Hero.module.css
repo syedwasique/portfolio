@@ -34,12 +34,12 @@
 }
 
 .title {
-  font-size: clamp(2.6rem, 12vw, 8rem);
+  font-size: clamp(2rem, 6.5vw, 6rem);
   letter-spacing: 0.06em;
   margin-bottom: 1rem;
   line-height: 1.1;
   color: #fff;
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.08em;
@@ -48,6 +48,11 @@
 .nameLine {
   display: block;
   white-space: nowrap;
+}
+
+.nameSpace {
+  display: inline-block;
+  width: 0.35em;
 }
 
 .animatedLetter {
@@ -123,7 +128,7 @@
   }
 
   .title {
-    font-size: clamp(2.2rem, 15vw, 3.8rem);
+    font-size: clamp(1.6rem, 8vw, 3rem);
     letter-spacing: 0.04em;
   }
 

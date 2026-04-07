@@ -78,14 +78,6 @@
   color: #ffffff;
 }
 
-.logoText {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: var(--text-primary);
-}
-
 @keyframes markShine {
   0% { transform: translateX(-120%); }
   55% { transform: translateX(120%); }
@@ -125,10 +117,4 @@
   background: var(--accent-gradient);
   box-shadow: 0 0 10px var(--accent-cyan);
   border-radius: 2px;
-}
-
-@media (max-width: 900px) {
-  .logoText {
-    display: none;
-  }
 }

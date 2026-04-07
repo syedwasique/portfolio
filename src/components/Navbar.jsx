@@ -40,12 +40,11 @@ const Navbar = () => {
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
-        <a href="#home" className={styles.logo}>
-          <span className={styles.logoMark} aria-hidden="true">
+        <a href="#home" className={styles.logo} aria-label="Wasique Rizvi">
+          <span className={styles.logoMark}>
             <span className={styles.logoW}>W</span>
             <span className={styles.logoR}>R</span>
           </span>
-          <span className={styles.logoText}>Wasique Rizvi</span>
         </a>
         <nav className={styles.nav}>
           <ul className={styles.navList}>
