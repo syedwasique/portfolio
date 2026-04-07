@@ -34,47 +34,47 @@
 }
 
 .title {
-  font-size: clamp(2.6rem, 12vw, 8rem);
-  letter-spacing: 0.06em;
+  font-size: clamp(2.6rem, 10vw, 7rem);
+  letter-spacing: 0.1em;
   margin-bottom: 1rem;
   line-height: 1.1;
-  color: #fff;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.08em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: 0 0.3em;
 }
 
-.nameLine {
-  display: block;
+.nameWord {
+  display: inline-flex;
   white-space: nowrap;
 }
 
 .animatedLetter {
   display: inline-block;
   opacity: 0;
-  transform: translateY(26px) scale(0.94);
-  animation: revealLetter 0.8s forwards cubic-bezier(0.22, 1, 0.36, 1);
-  color: #fff;
+  transform: translateY(30px) scale(0.92);
+  animation: revealLetter 0.7s forwards cubic-bezier(0.22, 1, 0.36, 1);
+  background: linear-gradient(135deg, #ffffff 0%, var(--accent-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 @keyframes revealLetter {
   0% {
     opacity: 0;
-    transform: translateY(26px) scale(0.94);
-    color: var(--accent-cyan);
-    text-shadow: var(--glow-cyan);
+    transform: translateY(30px) scale(0.92);
+    filter: blur(4px);
   }
-  65% {
+  60% {
     opacity: 1;
-    color: var(--accent-cyan);
-    text-shadow: var(--glow-cyan);
+    filter: blur(0px);
   }
   100% {
     opacity: 1;
     transform: translateY(0) scale(1);
-    color: #fff;
-    text-shadow: none;
+    filter: blur(0px);
   }
 }
 
@@ -123,8 +123,8 @@
   }
 
   .title {
-    font-size: clamp(2.2rem, 15vw, 3.8rem);
-    letter-spacing: 0.04em;
+    font-size: clamp(2rem, 13vw, 3.5rem);
+    letter-spacing: 0.06em;
   }
 
   .ctaGroup {

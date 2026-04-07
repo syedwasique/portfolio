@@ -43,17 +43,20 @@ const Hero = () => {
       
       <div className={styles.content}>
         <h1 className={styles.title} aria-label="Wasique Rizvi">
-          {HERO_NAME.map((line, lineIndex) => (
-            <span key={line} className={styles.nameLine}>
-              {line.split('').map((char, charIndex) => (
-                <span
-                  key={`${line}-${charIndex}`}
-                  className={styles.animatedLetter}
-                  style={{ animationDelay: `${lineIndex * 0.45 + charIndex * 0.08}s` }}
-                >
-                  {char}
-                </span>
-              ))}
+          {HERO_NAME.map((word, wordIndex) => (
+            <span key={word} className={styles.nameWord}>
+              {word.split('').map((char, charIndex) => {
+                const globalIndex = HERO_NAME.slice(0, wordIndex).reduce((acc, w) => acc + w.length, 0) + charIndex;
+                return (
+                  <span
+                    key={`${word}-${charIndex}`}
+                    className={styles.animatedLetter}
+                    style={{ animationDelay: `${globalIndex * 0.07}s` }}
+                  >
+                    {char}
+                  </span>
+                );
+              })}
             </span>
           ))}
         </h1>

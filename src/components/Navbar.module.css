@@ -37,16 +37,23 @@
 }
 
 .logoMark {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  border: 1px solid rgba(0, 245, 255, 0.35);
-  background: linear-gradient(145deg, rgba(0, 245, 255, 0.18), rgba(123, 47, 255, 0.12));
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(0, 245, 255, 0.5);
+  background: linear-gradient(145deg, rgba(0, 245, 255, 0.15) 0%, rgba(123, 47, 255, 0.2) 100%);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 0 16px rgba(0, 245, 255, 0.12), inset 0 0 10px rgba(123, 47, 255, 0.08);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.logo:hover .logoMark {
+  box-shadow: 0 0 24px rgba(0, 245, 255, 0.25), inset 0 0 14px rgba(123, 47, 255, 0.12);
+  border-color: rgba(0, 245, 255, 0.75);
 }
 
 .logoMark::before {
@@ -64,26 +71,19 @@
   z-index: 1;
   font-family: 'Syne', sans-serif;
   font-weight: 800;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   line-height: 1;
   letter-spacing: 0.01em;
 }
 
 .logoW {
   color: var(--accent-cyan);
-  margin-right: -2px;
+  text-shadow: 0 0 8px rgba(0, 245, 255, 0.6);
 }
 
 .logoR {
   color: #ffffff;
-}
-
-.logoText {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: var(--text-primary);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
 
 @keyframes markShine {
@@ -125,10 +125,4 @@
   background: var(--accent-gradient);
   box-shadow: 0 0 10px var(--accent-cyan);
   border-radius: 2px;
-}
-
-@media (max-width: 900px) {
-  .logoText {
-    display: none;
-  }
 }
