@@ -24,7 +24,7 @@ const Education = () => {
     <section id="education" className={styles.educationSection}>
       <div className={styles.container}>
         <h2 className={styles.sectionHeading}>
-          <span className="code-font">const education = [ ... ]</span>
+          <span>Education</span>
         </h2>
         
         <div className={styles.cardsRow}>

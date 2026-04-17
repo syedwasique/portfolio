@@ -1,14 +1,19 @@
 import { useEffect, useState } from 'react';
 import styles from './Hero.module.css';
+import cvFile from '../assets/cv/wasique-cv.pdf';
 
 const TITLES = [
   "Full Stack Developer",
-  "React & Node.js Expert",
+  "Digital Craftsman",
   "UI/UX Enthusiast",
   "Problem Solver"
 ];
 
+<<<<<<< HEAD
 const HERO_NAME = ["WASIQUE RIZVI"];
+=======
+const HERO_NAME = ["Wasique", "Rizvi"];
+>>>>>>> 7fde50d (Updated project files)
 
 const Hero = () => {
   const [titleIndex, setTitleIndex] = useState(0);
@@ -26,7 +31,7 @@ const Hero = () => {
         setIsDeleting(false);
         setTitleIndex((prev) => (prev + 1) % TITLES.length);
       } else {
-        setCurrentText((prev) => 
+        setCurrentText((prev) =>
           isDeleting
             ? currentFullText.substring(0, prev.length - 1)
             : currentFullText.substring(0, prev.length + 1)
@@ -40,9 +45,10 @@ const Hero = () => {
   return (
     <section id="home" className={styles.heroSection}>
       <div className={styles.backgroundGlow}></div>
-      
+
       <div className={styles.content}>
         <h1 className={styles.title} aria-label="Wasique Rizvi">
+<<<<<<< HEAD
           {HERO_NAME.map((line, lineIndex) => (
             <span key={line} className={styles.nameLine}>
               {line.split('').map((char, charIndex) => (
@@ -61,23 +67,47 @@ const Hero = () => {
                     {char}
                   </span>
                 )
+=======
+          {HERO_NAME.map((word, wordIndex) => (
+            <span key={word} className={styles.nameWord}>
+              {word.split('').map((char, charIndex) => (
+                <span
+                  key={`${word}-${charIndex}`}
+                  className={styles.animatedLetter}
+                  style={{ animationDelay: `${wordIndex * 0.3 + charIndex * 0.08}s` }}
+                >
+                  {char}
+                </span>
+>>>>>>> 7fde50d (Updated project files)
               ))}
+              {wordIndex < HERO_NAME.length - 1 && <span className={styles.space}>&nbsp;</span>}
             </span>
           ))}
         </h1>
-        
+
         <h2 className={styles.subtitle}>
           <span className={styles.typewriter}>{currentText}</span>
           <span className={styles.cursor}></span>
         </h2>
-        
+
         <p className={styles.tagline}>
           Building digital experiences that live on the edge of design and engineering.
         </p>
-        
+
         <div className={styles.ctaGroup}>
-          <a href="#projects" className="btn-primary">View My Work</a>
-          <a href="/cv.pdf" target="_blank" className="btn-outline">Download CV</a>
+          <a 
+            href="#projects" 
+            className="btn-primary"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            View My Work
+          </a>
+          <a href={cvFile} download="wasique-cv.pdf" target="_blank" rel="noopener noreferrer" className="btn-outline">
+            Download CV
+          </a>
         </div>
       </div>
 

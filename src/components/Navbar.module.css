@@ -37,16 +37,18 @@
 }
 
 .logoMark {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  border: 1px solid rgba(0, 245, 255, 0.35);
-  background: linear-gradient(145deg, rgba(0, 245, 255, 0.18), rgba(123, 47, 255, 0.12));
+  min-width: 50px;
+  height: 50px;
+  padding: 0 12px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(0, 245, 255, 0.4);
+  background: linear-gradient(145deg, rgba(0, 245, 255, 0.15), rgba(123, 47, 255, 0.2));
   display: inline-flex;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 245, 255, 0.15);
 }
 
 .logoMark::before {
@@ -64,14 +66,13 @@
   z-index: 1;
   font-family: 'Syne', sans-serif;
   font-weight: 800;
-  font-size: 1.05rem;
+  font-size: 1.4rem;
   line-height: 1;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
 }
 
 .logoW {
   color: var(--accent-cyan);
-  margin-right: -2px;
 }
 
 .logoR {

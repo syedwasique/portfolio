@@ -36,7 +36,7 @@ const Experience = () => {
     <section id="experience" className={styles.experienceSection}>
       <div className={styles.container}>
         <h2 className={styles.sectionHeading}>
-          <span className="code-font">experience.timeline</span>
+          <span>Experience</span>
         </h2>
         
         <div className={styles.timeline}>
