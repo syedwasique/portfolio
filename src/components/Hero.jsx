@@ -9,11 +9,7 @@ const TITLES = [
   "Problem Solver"
 ];
 
-<<<<<<< HEAD
-const HERO_NAME = ["WASIQUE RIZVI"];
-=======
 const HERO_NAME = ["Wasique", "Rizvi"];
->>>>>>> 7fde50d (Updated project files)
 
 const Hero = () => {
   const [titleIndex, setTitleIndex] = useState(0);
@@ -48,26 +44,6 @@ const Hero = () => {
 
       <div className={styles.content}>
         <h1 className={styles.title} aria-label="Wasique Rizvi">
-<<<<<<< HEAD
-          {HERO_NAME.map((line, lineIndex) => (
-            <span key={line} className={styles.nameLine}>
-              {line.split('').map((char, charIndex) => (
-                char === ' ' ? (
-                  <span
-                    key={`${line}-${charIndex}`}
-                    className={styles.nameSpace}
-                    aria-hidden="true"
-                  >&nbsp;</span>
-                ) : (
-                  <span
-                    key={`${line}-${charIndex}`}
-                    className={styles.animatedLetter}
-                    style={{ animationDelay: `${lineIndex * 0.45 + charIndex * 0.08}s` }}
-                  >
-                    {char}
-                  </span>
-                )
-=======
           {HERO_NAME.map((word, wordIndex) => (
             <span key={word} className={styles.nameWord}>
               {word.split('').map((char, charIndex) => (
@@ -78,7 +54,6 @@ const Hero = () => {
                 >
                   {char}
                 </span>
->>>>>>> 7fde50d (Updated project files)
               ))}
               {wordIndex < HERO_NAME.length - 1 && <span className={styles.space}>&nbsp;</span>}
             </span>
