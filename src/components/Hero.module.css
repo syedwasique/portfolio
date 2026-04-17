@@ -34,27 +34,16 @@
 }
 
 .title {
-<<<<<<< HEAD
-  font-size: clamp(2rem, 6.5vw, 6rem);
-  letter-spacing: 0.06em;
-=======
   font-size: clamp(3rem, 8vw, 6.5rem);
   letter-spacing: -0.02em;
->>>>>>> 7fde50d (Updated project files)
   margin-bottom: 1rem;
   line-height: 1.1;
   color: #fff;
   display: flex;
-<<<<<<< HEAD
-  flex-direction: column;
-  align-items: center;
-  gap: 0.08em;
-=======
   flex-wrap: wrap;
   justify-content: center;
   font-family: 'Syne', sans-serif;
   font-weight: 800;
->>>>>>> 7fde50d (Updated project files)
 }
 
 .nameWord {
@@ -62,15 +51,9 @@
   white-space: nowrap;
 }
 
-<<<<<<< HEAD
-.nameSpace {
-  display: inline-block;
-  width: 0.35em;
-=======
 .space {
   display: inline-block;
   width: 0.3em;
->>>>>>> 7fde50d (Updated project files)
 }
 
 .animatedLetter {
