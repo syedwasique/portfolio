@@ -1,5 +1,6 @@
 import { FaGithub } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import styles from './Projects.module.css';
 
 // Project images — correct these paths
@@ -184,7 +185,7 @@ const Projects = () => {
       </div>
 
       {/* ── Book-style Modal (Clean Version) ── */}
-      {selected && (
+      {selected && createPortal(
         <div
           className={`${styles.modalBackdrop} ${isAnimating ? styles.backdropAnimating : ''}`}
           onClick={(e) => e.target === e.currentTarget && handleCloseModal()}
@@ -241,7 +242,8 @@ const Projects = () => {
             {/* Page curl shadow effect */}
             <div className={styles.pageCurl}></div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );

@@ -335,7 +335,7 @@
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.85);
-  z-index: 1000;
+  z-index: 100000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -351,6 +351,9 @@
   width: 60%;
   max-width: 680px;
   min-width: 320px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
   position: relative;
   overflow: hidden;
   transform-origin: center center;
@@ -462,6 +465,7 @@
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 8;
+  flex-shrink: 0;
   overflow: hidden;
   background: #000;
 }
@@ -538,6 +542,22 @@
 /* ── Modal text content ── */
 .modalContent {
   padding: 1.5rem 1.75rem 1.75rem;
+  overflow-y: auto;
+}
+
+/* Custom scrollbar for modal content */
+.modalContent::-webkit-scrollbar {
+  width: 6px;
+}
+.modalContent::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+.modalContent::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+}
+.modalContent::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .projectBadge {
