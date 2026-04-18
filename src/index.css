@@ -95,6 +95,10 @@ ul {
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
   font-family: 'DM Sans', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .btn-primary:hover {
@@ -113,9 +117,24 @@ ul {
   transition: all 0.2s;
   font-family: 'DM Sans', sans-serif;
   box-shadow: 0 0 10px rgba(0, 245, 255, 0.1) inset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .btn-outline:hover {
   box-shadow: var(--glow-cyan);
   background: rgba(0, 245, 255, 0.05);
+}
+
+/* Ensure sections don't get hidden behind fixed navbar */
+section[id] {
+  scroll-margin-top: 72px;
+}
+
+/* Prevent horizontal overflow on all devices */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
 }

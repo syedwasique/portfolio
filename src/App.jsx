@@ -16,6 +16,7 @@ const SectionWrapper = ({ children }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
+      style={{ isolation: 'isolate' }}
     >
       {children}
     </motion.div>

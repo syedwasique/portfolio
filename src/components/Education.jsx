@@ -5,17 +5,17 @@ const EDUCATION_DATA = [
   {
     institution: "Bahria University Karachi",
     degree: "B.Sc. Computer Science",
-    years: "2023\u2013Present"
+    years: "2023–Present"
   },
   {
     institution: "Usman Public School System",
     degree: "HSC, Karachi Board",
-    years: "2020\u20132022"
+    years: "2020–2022"
   },
   {
     institution: "The City School",
     degree: "GCE O-Level, Pre-Medical",
-    years: "2019\u20132020"
+    years: "2019–2020"
   }
 ];
 
@@ -26,10 +26,13 @@ const Education = () => {
         <h2 className={styles.sectionHeading}>
           <span>Education</span>
         </h2>
-        
+
         <div className={styles.cardsRow}>
           {EDUCATION_DATA.map((edu, index) => (
-            <div key={index} className={styles.eduCard}>
+            <div
+              key={index}
+              className={`${styles.eduCard} ${index === EDUCATION_DATA.length - 1 ? styles.lastCard : ''}`}
+            >
               <div className={styles.iconWrapper}>
                 <FaGraduationCap className={styles.icon} />
               </div>

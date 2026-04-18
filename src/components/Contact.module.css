@@ -3,6 +3,7 @@
   background: linear-gradient(135deg, var(--bg-primary) 0%, #0a0a0f 100%);
   position: relative;
   overflow: hidden;
+  overflow-x: hidden;
 }
 
 .bgGradient {
@@ -416,24 +417,66 @@
 
 @media (max-width: 768px) {
   .contactSection {
-    padding: 4rem 1rem 6rem 1rem;
+    padding: 7rem 1.5rem 6rem 1.5rem;
   }
 
   .sectionHeading {
-    font-size: 2rem;
+    font-size: 1.9rem;
+  }
+
+  .sectionHeader {
+    margin-bottom: 2.5rem;
   }
 
   .formContainer {
-    padding: 1.5rem;
+    padding: 1.75rem 1.25rem;
   }
 
   .methodCard {
     padding: 1rem;
+    gap: 1rem;
+  }
+
+  .methodCard:hover {
+    transform: translateX(4px);
   }
 
   .iconBox {
-    width: 48px;
-    height: 48px;
+    width: 46px;
+    height: 46px;
     font-size: 1.2rem;
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
+
+  .methodDetails h4 {
+    font-size: 0.9rem;
+    word-break: break-all;
+  }
+
+  .socialProof {
+    padding: 1rem;
+  }
+
+  .statNumber {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactSection {
+    padding: 6rem 1.25rem 5rem 1.25rem;
+  }
+
+  .sectionHeading {
+    font-size: 1.6rem;
+  }
+
+  .contactLayout {
+    gap: 2rem;
+  }
+
+  .formContainer {
+    padding: 1.25rem 1rem;
   }
 }

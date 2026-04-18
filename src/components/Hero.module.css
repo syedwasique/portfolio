@@ -5,7 +5,7 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
-  padding: 0 2rem;
+  padding: 6rem 2rem 4rem;
 }
 
 .backgroundGlow {
@@ -15,83 +15,119 @@
   transform: translate(-50%, -50%);
   width: 60vw;
   height: 60vw;
-  background: radial-gradient(circle, rgba(0,245,255,0.15) 0%, rgba(123,47,255,0.15) 50%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 245, 255, 0.15) 0%, rgba(123, 47, 255, 0.15) 50%, transparent 70%);
   filter: blur(80px);
   z-index: 0;
   animation: pulseGlow 8s infinite alternate;
 }
 
 @keyframes pulseGlow {
-  0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.6; }
-  100% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+  0% {
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
+  }
 }
 
 .content {
   position: relative;
   z-index: 10;
   text-align: center;
-  max-width: 800px;
+  max-width: 1000px;
+  width: 100%;
 }
 
+/* ─────────────────────────────────────────
+   TITLE  —  matches reference: huge, bold,
+   single line, "I'm" white + name gradient
+───────────────────────────────────────── */
 .title {
+  /* Match the reference image's massive size */
   font-size: clamp(3rem, 8vw, 6.5rem);
-  letter-spacing: -0.02em;
-  margin-bottom: 1rem;
-  line-height: 1.1;
-  color: #fff;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Outfit', 'DM Sans', sans-serif;
   font-weight: 800;
-}
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 1.1rem;
 
-.nameWord {
+  /* Single row, centred */
   display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  justify-content: center;
   white-space: nowrap;
 }
 
-.space {
+/* "I'm " — plain white, same weight/size, no gradient */
+.plainPrefix {
+  color: #ffffff;
   display: inline-block;
-  width: 0.3em;
+  /* kill gradient inheritance */
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  -webkit-text-fill-color: #ffffff;
 }
 
+/* wrapper that carries the gradient for background-clip to work */
+.animatedLetter {
+  background: linear-gradient(135deg, #00f5ff 0%, #c0f0f8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* tiny gap between Wasique and Rizvi */
+.wordGap {
+  display: inline-block;
+  width: 0.25em;
+}
+
+/* Each letter: blur-fade-up reveal, inherits gradient from parent */
 .animatedLetter {
   display: inline-block;
   opacity: 0;
-  transform: translateY(26px) scale(0.94);
-  animation: revealLetter 0.8s forwards cubic-bezier(0.22, 1, 0.36, 1);
-  color: #fff;
+  transform: translateY(24px) scale(0.95);
+  animation: revealLetter 0.75s forwards cubic-bezier(0.22, 1, 0.36, 1);
+  -webkit-text-fill-color: transparent;
+  /* lets background-clip show through */
 }
 
 @keyframes revealLetter {
   0% {
     opacity: 0;
-    transform: translateY(26px) scale(0.94);
-    color: var(--accent-cyan);
-    text-shadow: var(--glow-cyan);
+    transform: translateY(24px) scale(0.95);
+    filter: blur(6px);
   }
-  65% {
+
+  60% {
     opacity: 1;
-    color: var(--accent-cyan);
-    text-shadow: var(--glow-cyan);
+    filter: blur(0);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0) scale(1);
-    color: #fff;
-    text-shadow: none;
+    filter: blur(0);
   }
 }
 
+/* ── Subtitle / Typewriter ── */
 .subtitle {
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-size: clamp(1.2rem, 4vw, 2.2rem);
   font-family: 'DM Sans', sans-serif;
   font-weight: 500;
-  height: 3rem;
+  min-height: 2.5rem;
   margin-bottom: 1.5rem;
   color: var(--accent-violet);
   text-shadow: var(--glow-violet);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cursor {
@@ -102,46 +138,42 @@
   vertical-align: text-bottom;
   animation: blink 1s step-end infinite;
   margin-left: 2px;
+  flex-shrink: 0;
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
+/* ── Tagline ── */
 .tagline {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: var(--text-muted);
-  max-width: 600px;
-  margin: 0 auto 3rem auto;
-  line-height: 1.6;
+  max-width: 560px;
+  margin: 0 auto 2.5rem auto;
+  line-height: 1.7;
 }
 
+/* ── CTA Buttons ── */
 .ctaGroup {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.25rem;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
-@media (max-width: 600px) {
-  .heroSection {
-    padding: 0 1.25rem;
-  }
-
-  .title {
-    font-size: clamp(1.6rem, 8vw, 3rem);
-    letter-spacing: 0.04em;
-  }
-
-  .ctaGroup {
-    flex-direction: column;
-    width: 100%;
-  }
-}
-
+/* ── Scroll Indicator ── */
 .scrollIndicator {
   position: absolute;
-  bottom: 40px;
+  bottom: 32px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -151,17 +183,17 @@
 }
 
 .mouse {
-  width: 26px;
-  height: 42px;
+  width: 24px;
+  height: 38px;
   border: 2px solid var(--text-muted);
-  border-radius: 15px;
+  border-radius: 14px;
   position: relative;
   margin-bottom: 8px;
 }
 
 .wheel {
   width: 4px;
-  height: 8px;
+  height: 7px;
   background-color: var(--accent-cyan);
   border-radius: 2px;
   position: absolute;
@@ -173,8 +205,15 @@
 }
 
 @keyframes scrollWheel {
-  0% { transform: translate(-50%, 0); opacity: 1; }
-  100% { transform: translate(-50%, 12px); opacity: 0; }
+  0% {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, 10px);
+    opacity: 0;
+  }
 }
 
 .arrows span {
@@ -188,11 +227,83 @@
   animation: scrollArrows 2s infinite;
 }
 
-.arrows span:nth-child(2) { animation-delay: -0.2s; }
-.arrows span:nth-child(3) { animation-delay: -0.4s; }
+.arrows span:nth-child(2) {
+  animation-delay: -0.2s;
+}
+
+.arrows span:nth-child(3) {
+  animation-delay: -0.4s;
+}
 
 @keyframes scrollArrows {
-  0% { opacity: 0; transform: rotate(45deg) translate(-5px, -5px); }
-  50% { opacity: 1; }
-  100% { opacity: 0; transform: rotate(45deg) translate(5px, 5px); }
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(-5px, -5px);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+}
+
+/* ── Tablet ── */
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 7rem 1.5rem 5rem;
+    min-height: 100svh;
+  }
+
+  .title {
+    font-size: clamp(2.4rem, 7vw, 3.8rem);
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+
+  .tagline {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    padding: 0 0.5rem;
+  }
+
+  .ctaGroup {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.9rem;
+  }
+
+  .ctaGroup .btn-primary,
+  .ctaGroup .btn-outline {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .scrollIndicator {
+    bottom: 20px;
+  }
+}
+
+/* ── Mobile ── */
+@media (max-width: 480px) {
+  .heroSection {
+    padding: 6.5rem 1.25rem 4.5rem;
+  }
+
+  .title {
+    font-size: clamp(1.9rem, 8vw, 2.5rem);
+    flex-wrap: wrap;
+    white-space: normal;
+    justify-content: center;
+    letter-spacing: -0.01em;
+  }
+
+  .subtitle {
+    font-size: clamp(1rem, 5vw, 1.4rem);
+    min-height: 2rem;
+  }
 }

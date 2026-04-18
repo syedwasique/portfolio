@@ -9,8 +9,6 @@ const TITLES = [
   "Problem Solver"
 ];
 
-const HERO_NAME = ["Wasique", "Rizvi"];
-
 const Hero = () => {
   const [titleIndex, setTitleIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
@@ -43,21 +41,38 @@ const Hero = () => {
       <div className={styles.backgroundGlow}></div>
 
       <div className={styles.content}>
-        <h1 className={styles.title} aria-label="Wasique Rizvi">
-          {HERO_NAME.map((word, wordIndex) => (
-            <span key={word} className={styles.nameWord}>
-              {word.split('').map((char, charIndex) => (
-                <span
-                  key={`${word}-${charIndex}`}
-                  className={styles.animatedLetter}
-                  style={{ animationDelay: `${wordIndex * 0.3 + charIndex * 0.08}s` }}
-                >
-                  {char}
-                </span>
-              ))}
-              {wordIndex < HERO_NAME.length - 1 && <span className={styles.space}>&nbsp;</span>}
-            </span>
-          ))}
+
+        <h1 className={styles.title} aria-label="I'm Wasique Rizvi">
+          {/* "I'm " — plain white, no gradient */}
+          <span className={styles.plainPrefix}>I&#39;m&nbsp;</span>
+
+          {/* "Wasique" — cyan→white gradient, letter-by-letter animation */}
+          <span className={styles.gradientWord}>
+            {"Wasique".split('').map((char, i) => (
+              <span
+                key={`w-${i}`}
+                className={styles.animatedLetter}
+                style={{ animationDelay: `${0.15 + i * 0.07}s` }}
+              >
+                {char}
+              </span>
+            ))}
+          </span>
+
+          <span className={styles.wordGap}>&nbsp;</span>
+
+          {/* "Rizvi" — cyan→white gradient, letter-by-letter animation */}
+          <span className={styles.gradientWord}>
+            {"Rizvi".split('').map((char, i) => (
+              <span
+                key={`r-${i}`}
+                className={styles.animatedLetter}
+                style={{ animationDelay: `${0.65 + i * 0.07}s` }}
+              >
+                {char}
+              </span>
+            ))}
+          </span>
         </h1>
 
         <h2 className={styles.subtitle}>
@@ -70,8 +85,8 @@ const Hero = () => {
         </p>
 
         <div className={styles.ctaGroup}>
-          <a 
-            href="#projects" 
+          <a
+            href="#projects"
             className="btn-primary"
             onClick={(e) => {
               e.preventDefault();

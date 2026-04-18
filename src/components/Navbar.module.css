@@ -1,16 +1,17 @@
+/* ── Header ── */
 .header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 10000;
   transition: all 0.3s ease;
-  padding: 1.5rem 0;
+  padding: 1.25rem 0;
 }
 
 .scrolled {
-  padding: 1rem 0;
-  background-color: rgba(10, 10, 15, 0.7);
+  padding: 0.85rem 0;
+  background-color: rgba(10, 10, 15, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
@@ -25,11 +26,14 @@
   align-items: center;
 }
 
+/* ── Logo ── */
 .logo {
   display: inline-flex;
   align-items: center;
   gap: 0.7rem;
   transition: filter 0.3s ease;
+  z-index: 10002;
+  position: relative;
 }
 
 .logo:hover {
@@ -37,9 +41,9 @@
 }
 
 .logoMark {
-  min-width: 50px;
-  height: 50px;
-  padding: 0 12px;
+  min-width: 46px;
+  height: 46px;
+  padding: 0 10px;
   border-radius: 12px;
   border: 1.5px solid rgba(0, 245, 255, 0.4);
   background: linear-gradient(145deg, rgba(0, 245, 255, 0.15), rgba(123, 47, 255, 0.2));
@@ -66,7 +70,7 @@
   z-index: 1;
   font-family: 'Syne', sans-serif;
   font-weight: 800;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   line-height: 1;
   letter-spacing: 0.02em;
 }
@@ -80,9 +84,15 @@
 }
 
 @keyframes markShine {
-  0% { transform: translateX(-120%); }
-  55% { transform: translateX(120%); }
+  0%   { transform: translateX(-120%); }
+  55%  { transform: translateX(120%); }
   100% { transform: translateX(120%); }
+}
+
+/* ── Desktop Nav ── */
+.nav {
+  display: flex;
+  align-items: center;
 }
 
 .navList {
@@ -96,6 +106,7 @@
   opacity: 0.8;
   position: relative;
   transition: color 0.3s, opacity 0.3s;
+  font-size: 0.95rem;
 }
 
 .navLink:hover {
@@ -118,4 +129,140 @@
   background: var(--accent-gradient);
   box-shadow: 0 0 10px var(--accent-cyan);
   border-radius: 2px;
+}
+
+/* ── Hamburger ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 10002;
+  position: relative;
+  transition: background 0.3s, border-color 0.3s;
+  padding: 0;
+}
+
+.hamburger:hover {
+  background: rgba(0, 245, 255, 0.08);
+  border-color: rgba(0, 245, 255, 0.3);
+}
+
+.bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: transform 0.35s ease, opacity 0.25s ease, background 0.3s;
+  transform-origin: center;
+}
+
+/* Animate into X */
+.hamburgerOpen .bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+  background: var(--accent-cyan);
+}
+.hamburgerOpen .bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburgerOpen .bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+  background: var(--accent-cyan);
+}
+
+/* ── Mobile Drawer ── */
+.mobileMenu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100dvh;
+  background: #0a0a0f;
+  z-index: 9999;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-12px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mobileMenuOpen {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+.mobileNavList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0 2rem;
+}
+
+.mobileNavLink {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  text-align: center;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: 'Syne', sans-serif;
+  color: rgba(255, 255, 255, 0.75);
+  border-radius: 14px;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  letter-spacing: 0.03em;
+}
+
+.mobileNavLink:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.mobileActive {
+  color: var(--accent-cyan);
+  background: rgba(0, 245, 255, 0.07);
+  border-color: rgba(0, 245, 255, 0.25);
+}
+
+/* Backdrop */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+}
+
+/* ── Responsive: hide desktop nav, show hamburger ── */
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .mobileMenu {
+    display: flex;
+  }
+
+  .container {
+    padding: 0 1.25rem;
+  }
 }

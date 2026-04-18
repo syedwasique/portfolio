@@ -10,12 +10,33 @@
   margin: 0 auto;
 }
 
+/* Updated Section Heading - Centered with W theme color (white/cyan gradient) */
 .sectionHeading {
-  text-align: left;
+  text-align: center;
   margin-bottom: 3rem;
-  color: var(--text-muted);
-  font-size: 2rem;
-  opacity: 0.8;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.sectionHeading span {
+  background: linear-gradient(135deg, #ffffff, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+  display: inline-block;
+}
+
+.sectionHeading span::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #00f5ff, #7b2fff);
+  border-radius: 2px;
 }
 
 /* ── Horizontal Tabs ── */
@@ -270,11 +291,19 @@
     padding: 0.5rem 1rem;
     font-size: 0.75rem;
   }
+
+  .sectionHeading {
+    font-size: 2.2rem;
+  }
+
+  .sectionHeading span::after {
+    width: 50px;
+  }
 }
 
 @media (max-width: 768px) {
   .skillsSection {
-    padding: 4rem 1.5rem;
+    padding: 7rem 1.5rem 4rem;
   }
 
   .tabsContainer {
@@ -288,37 +317,100 @@
     flex-shrink: 0;
   }
 
+  /* 3 cards per row on mobile */
   .skillsTrain {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.65rem;
+  }
+
+  /* Compact card: icon centred above name */
+  .skillCardInner {
+    padding: 0.85rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.4rem;
+  }
+
+  .skillIconWrapper {
+    width: 38px;
+    height: 38px;
+    margin-bottom: 0;
+    border-radius: 10px;
+  }
+
+  .skillIcon,
+  .skillIconPlaceholder {
+    font-size: 1.3rem;
+  }
+
+  .skillName {
+    font-size: 0.72rem;
+    font-weight: 500;
+    margin-bottom: 0;
+    letter-spacing: 0;
+    line-height: 1.2;
+    word-break: break-word;
+  }
+
+  .skillInfo {
+    flex: unset;
+  }
+
+  .skillsTrainWrapper {
+    min-height: auto;
   }
 
   .sectionHeading {
     font-size: 1.75rem;
     margin-bottom: 2rem;
   }
+
+  .sectionHeading span::after {
+    width: 45px;
+    bottom: -8px;
+  }
 }
 
 @media (max-width: 560px) {
   .skillsSection {
-    padding: 3rem 1rem;
+    padding: 6rem 1.25rem 3rem;
+  }
+
+  /* Tighten to 3 columns on very small screens too */
+  .skillsTrain {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
   }
 
   .skillCardInner {
-    padding: 1rem;
+    padding: 0.75rem 0.35rem;
   }
 
   .skillIconWrapper {
-    width: 40px;
-    height: 40px;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
   }
 
-  .skillIcon {
-    font-size: 1.5rem;
+  .skillIcon,
+  .skillIconPlaceholder {
+    font-size: 1.15rem;
   }
 
   .skillName {
-    font-size: 0.9rem;
+    font-size: 0.65rem;
+  }
+
+  .sectionHeading {
+    font-size: 1.5rem;
+  }
+
+  .sectionHeading span::after {
+    width: 40px;
+    height: 2px;
+    bottom: -6px;
   }
 }
 

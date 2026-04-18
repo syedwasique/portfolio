@@ -83,7 +83,7 @@ const About = () => {
                 </div>
               </div>
 
-              <button 
+              <button
                 className={styles.connectBtn}
                 onClick={() => {
                   document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
@@ -130,7 +130,7 @@ const About = () => {
               {activeTab === 'about' ? (
                 <div className={styles.aboutContent}>
                   <p className={styles.bio}>
-                    I'm a passionate <span className={styles.highlight}>Full Stack Developer</span> and <span className={styles.highlight}>Computer Science student </span>
+                    I'm a passionate <span className={styles.highlight}>Full Stack Developer</span> and <span className={styles.highlight}>Computer Science student</span>
                     dedicated to building innovative digital solutions. With a unique blend of technical expertise and creative thinking,
                     I transform ideas into seamless, user-friendly applications.
                   </p>
@@ -152,7 +152,6 @@ const About = () => {
                       <span className={styles.interestIcon}>🎨</span>
                       <span>UI/UX Design</span>
                     </div>
-
                   </div>
 
                   <div className={styles.quoteBox}>
@@ -181,8 +180,6 @@ const About = () => {
                       </div>
                     ))}
                   </div>
-
-
                 </div>
               )}
             </div>
