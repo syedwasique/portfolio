@@ -135,7 +135,8 @@ const About = () => {
                     I transform ideas into seamless, user-friendly applications.
                   </p>
                   <p className={styles.bio}>
-                    My journey in tech started with a curiosity for how things work, which evolved into a deep passion for coding and
+                    A <span className={styles.highlight}>Pakistan-based Full Stack Developer</span> specializing in React and Node.js —
+                    my journey in tech started with a curiosity for how things work, which evolved into a deep passion for coding and
                     problem-solving. I believe in writing clean, efficient code and creating experiences that make a difference.
                   </p>
 
